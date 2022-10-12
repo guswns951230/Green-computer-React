@@ -15,6 +15,8 @@
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
 
+    <link rel="stylesheet" href="./style.css" />
+
     <title>Test</title>
   </head>
   <body>
@@ -22,7 +24,12 @@
     <script type="text/babel">
       function MyApp() {
         const name = "react";
-        const user = "성춘향";
+        const user = "홍길동";
+        const login = true;
+        let dog = {
+          name: "백구",
+          age: 1,
+        }; // || 사용, family에 접근햇을때 없는 속성
         return (
           <div>
             <h1>{name}에 JS를 추가해서 작성하고 있습니다.</h1>
@@ -33,6 +40,29 @@
             ) : (
               <h2>다른 사람입니다.</h2>
             )}
+
+            {login ? (
+              <div>
+                <h1>로그인에 성공하였습니다.</h1>
+                <h3>홍길동입니다</h3>
+              </div>
+            ) : (
+              <div>
+                <h1>로그인이 필요합니다</h1>
+                <p>리액트를 시작하였습니다</p>
+              </div>
+            )}
+
+            {login && (
+              <div>
+                <h1>로그인에 성공하였습니다.</h1>
+                <h3>홍길동입니다</h3>
+              </div>
+            )}
+
+            {dog.family || <h2>없는 속성</h2>}
+
+            <p className="reactStyle">react</p>
           </div>
         );
       }
